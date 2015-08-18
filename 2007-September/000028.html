@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] Problem with 2.6.22 kernel
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Problem%20with%202.6.22%20kernel&In-Reply-To=%3C1189474948.1828.31.camel%40dv%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000027.html">
+   <LINK REL="Next"  HREF="000029.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] Problem with 2.6.22 kernel</H1>
+    <B>Pavel Roskin</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Problem%20with%202.6.22%20kernel&In-Reply-To=%3C1189474948.1828.31.camel%40dv%3E"
+       TITLE="[at76c503a-user] Problem with 2.6.22 kernel">proski at gnu.org
+       </A><BR>
+    <I>Tue Sep 11 03:42:28 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000027.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+        <LI>Next message: <A HREF="000029.html">[at76c503a-user] Developer mailing list/code repository
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#28">[ date ]</a>
+              <a href="thread.html#28">[ thread ]</a>
+              <a href="subject.html#28">[ subject ]</a>
+              <a href="author.html#28">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Milan!
+
+On Mon, 2007-09-10 at 17:56 +0200, Milan Plzik wrote:
+&gt;<i> On Po, 2007-09-10 at 06:59 -0400, Pavel Roskin wrote:
+</I>&gt;<i> &gt; Quoting Mark Sansome &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">msansome at troodos.demon.co.uk</A>&gt;:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; &gt; p.s. 2 cheeky additional questions:
+</I>&gt;<i> &gt; &gt; a) When (roughly) do you think the driver could be incorporated into  
+</I>&gt;<i> &gt; &gt;  the kernel?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I think it's too late for 2.6.24, but 2.6.25 is a realistic target.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; &gt; b) Any prospect of WPA support?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; If mac80211 conversion succeeds, WPA will be supported automatically.
+</I>&gt;<i> &gt; 
+</I>&gt;<i>   I'm not very sure, but is it really so?
+</I>
+It's hard to say until it's done.
+
+&gt;<i>  AFAIK WPA support requires 1.x
+</I>&gt;<i> firmware releases, which are not (yet) supported at all.
+</I>
+You probably mean 1.103 firmware.  Indeed, it's not supported.  I think
+it would be easier to add support for it once mac80211 conversion is
+completed, as it would move some operations from the firmware to the
+software, making firmware differences less relevant.
+
+&gt;<i>  But I'm not
+</I>&gt;<i> sure what does WPA support exactly mean (e.g. what everything changes).
+</I>
+I think if the encryption is fully in the software, all that is needed
+is the ability to send and receive encrypted frames as is.  Maybe the
+1.103 firmware adds support for encryption in firmware, I don't know.
+
+&gt;<i> I originally wanted to add support for WPA-enabled firmware to at76c503
+</I>&gt;<i> driver as a part of my bachelor's work (or at least make an attempt to
+</I>&gt;<i> do that), based on atmelwlandriver. However, if this can be done
+</I>&gt;<i> otherwise, I can rather focus on some other topic. 
+</I>
+I don't want to discourage you from this effort.  It's quite an
+interesting task including some software archeology.  There is a
+significant difference between the fields in the MIB structures as
+described in at76_usb and atmelwlandriver.  Some may be due to firmware
+changes, but some may be just errors in one of the drivers.
+
+Every change needs to be verified on the hardware.  Until recently, I
+only had Netgear MA-101 rev B (atmel_at76c503-rfmd.bin).  Today I
+received Linksys WUSB11 rev 2.8 (atmel_at76c505-rfmd2958.bin).  I still
+cannot find any devices with Intersil radio, and they are most likely to
+be impacted by the changes.
+
+If you have time and hardware, please go ahead.
+
+By the way, I have no proof that the mac80211 conversion will result in
+a working driver with the existing firmware, so your efforts may
+actually help with WPA support.
+
+-- 
+Regards,
+Pavel Roskin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000027.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+	<LI>Next message: <A HREF="000029.html">[at76c503a-user] Developer mailing list/code repository
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#28">[ date ]</a>
+              <a href="thread.html#28">[ thread ]</a>
+              <a href="subject.html#28">[ subject ]</a>
+              <a href="author.html#28">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

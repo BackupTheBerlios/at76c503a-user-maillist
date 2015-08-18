@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] field 'dwork_restart' has incomplete type
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20field%20%27dwork_restart%27%20has%20incomplete%20type&In-Reply-To=%3C971633.21236.qm%40web34603.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000036.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] field 'dwork_restart' has incomplete type</H1>
+    <B>Bill Hogan</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20field%20%27dwork_restart%27%20has%20incomplete%20type&In-Reply-To=%3C971633.21236.qm%40web34603.mail.mud.yahoo.com%3E"
+       TITLE="[at76c503a-user] field 'dwork_restart' has incomplete type">logic4sure at yahoo.com
+       </A><BR>
+    <I>Wed Dec  5 00:28:48 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000036.html">[at76c503a-user] field 'dwork_restart' has incomplete type
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#35">[ date ]</a>
+              <a href="thread.html#35">[ thread ]</a>
+              <a href="subject.html#35">[ subject ]</a>
+              <a href="author.html#35">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Berlios List!
+
+I am trying to get my Xterasys xn-2122b USB wireless
+adapter to work on Debian etch, but when I try to
+comiple the driver, 'make' gives me the error messages
+shown below.
+
+Please advise.
+
+Thank you.
+
+&lt;begin insert&gt;
+make -C /usr/src/linux-headers-2.6.18-5-486
+M=/mnt/bedlam/VAR/berlios/at76_usb-0.17
+KERNELRELEASE=2.6.18-5-486 modules
+make[1]: Entering directory
+`/usr/src/linux-headers-2.6.18-5-486'
+  CC [M] 
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.o
+In file included from
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:41:
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.h:463:
+error: field 'dwork_restart' has incomplete type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.h:464:
+error: field 'dwork_get_scan' has incomplete type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.h:465:
+error: field 'dwork_beacon' has incomplete type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.h:466:
+error: field 'dwork_auth' has incomplete type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.h:467:
+error: field 'dwork_assoc' has incomplete type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_tx_callback':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:1535:
+warning: passing argument 6 of 'usb_fill_bulk_urb'
+from incompatible pointer type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_tx_mgmt':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:1595:
+warning: passing argument 6 of 'usb_fill_bulk_urb'
+from incompatible pointer type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_tx':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3213:
+warning: passing argument 6 of 'usb_fill_bulk_urb'
+from incompatible pointer type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_submit_rx_urb':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3272:
+warning: passing argument 6 of 'usb_fill_bulk_urb'
+from incompatible pointer type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_dwork_get_scan':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3695:
+warning: type defaults to 'int' in declaration of
+'__mptr'
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3695:
+warning: initialization from incompatible pointer type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_dwork_beacon':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3763:
+warning: type defaults to 'int' in declaration of
+'__mptr'
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3763:
+warning: initialization from incompatible pointer type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_dwork_auth':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3787:
+warning: type defaults to 'int' in declaration of
+'__mptr'
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3787:
+warning: initialization from incompatible pointer type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_dwork_assoc':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3816:
+warning: type defaults to 'int' in declaration of
+'__mptr'
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3816:
+warning: initialization from incompatible pointer type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_dwork_restart':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3997:
+warning: type defaults to 'int' in declaration of
+'__mptr'
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:3997:
+warning: initialization from incompatible pointer type
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5142:56:
+error: macro &quot;INIT_WORK&quot; requires 3 arguments, but
+only 2 given
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_alloc_new_device':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5142:
+error: 'INIT_WORK' undeclared (first use in this
+function)
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5142:
+error: (Each undeclared identifier is reported only
+once
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5142:
+error: for each function it appears in.)
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5143:44:
+error: macro &quot;INIT_WORK&quot; requires 3 arguments, but
+only 2 given
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5144:50:
+error: macro &quot;INIT_WORK&quot; requires 3 arguments, but
+only 2 given
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5145:56:
+error: macro &quot;INIT_WORK&quot; requires 3 arguments, but
+only 2 given
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5146:58:
+error: macro &quot;INIT_WORK&quot; requires 3 arguments, but
+only 2 given
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5147:54:
+error: macro &quot;INIT_WORK&quot; requires 3 arguments, but
+only 2 given
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5148:
+warning: implicit declaration of function
+'INIT_DELAYED_WORK'
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c: In
+function 'at76_alloc_urbs':
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5205:
+warning: implicit declaration of function
+'usb_endpoint_is_bulk_in'
+/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.c:5208:
+warning: implicit declaration of function
+'usb_endpoint_is_bulk_out'
+make[2]: ***
+[/mnt/bedlam/VAR/berlios/at76_usb-0.17/at76_usb.o]
+Error 1
+make[1]: ***
+[_module_/mnt/bedlam/VAR/berlios/at76_usb-0.17] Error
+2
+make[1]: Leaving directory
+`/usr/src/linux-headers-2.6.18-5-486'
+make: *** [modules] Error 2
+&lt;/end insert&gt;
+
+
+      ____________________________________________________________________________________
+Be a better sports nut!  Let your teams follow you 
+with Yahoo Mobile. Try it now.  <A HREF="http://mobile.yahoo.com/sports;_ylt=At9_qDKvtAbMuh1G1SQtBI7ntAcJ">http://mobile.yahoo.com/sports;_ylt=At9_qDKvtAbMuh1G1SQtBI7ntAcJ</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000036.html">[at76c503a-user] field 'dwork_restart' has incomplete type
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#35">[ date ]</a>
+              <a href="thread.html#35">[ thread ]</a>
+              <a href="subject.html#35">[ subject ]</a>
+              <a href="author.html#35">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

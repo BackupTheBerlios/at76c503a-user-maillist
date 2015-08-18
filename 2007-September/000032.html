@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] wrong firmware version with Belkin F5D6050 and	kernel 2.6.22.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20wrong%20firmware%20version%20with%20Belkin%20F5D6050%20and%0A%09kernel%202.6.22.5&In-Reply-To=%3C262460350709231437t5e308dd4hf4970a71b673838d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000031.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] wrong firmware version with Belkin F5D6050 and	kernel 2.6.22.5</H1>
+    <B>Corey Pappas</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20wrong%20firmware%20version%20with%20Belkin%20F5D6050%20and%0A%09kernel%202.6.22.5&In-Reply-To=%3C262460350709231437t5e308dd4hf4970a71b673838d%40mail.gmail.com%3E"
+       TITLE="[at76c503a-user] wrong firmware version with Belkin F5D6050 and	kernel 2.6.22.5">pappascd at gmail.com
+       </A><BR>
+    <I>Sun Sep 23 23:37:08 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000031.html">[at76c503a-user] Developer mailing list/code repository
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[at76c503a-user] wrong firmware version with Belkin F5D6050	and	kernel 2.6.22.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+After plugging in my Belkin wireless network adapter, I get the following
+message from the at76_usb module:
+
+wrong firmware version, loaded 1.101.0-84, read back 8.1.101.5-84
+probe of 1-1:1.0 failed with error 16
+
+I've enabled hotplug, firmware, and udev support in my kernel.
+
+dmesg shows:
+usb 1-1: new full speed USB device using uhci_hcd and address 17
+usb 1-1: configuration #1 chosen from 1 choice
+Atmel at76x USB Wireless LAN Driver 0.16 loading
+usb 1-1: reset full speed USB device using uhci_hcd and address 17
+usb 1-1: device firmware changed
+usbcore: registered new interface driver at76_usb
+usb 1-1: USB disconnect, address 17
+usb 1-1: new full speed USB device using uhci_hcd and address 18
+usb 1-1: configuration #1 chosen from 1 choice
+at76_usb: wrong firmware version, loaded 1.101.0-84, read back 8.101.5-84
+at76_usb: probe of 1-1:1.0 failed with error -16
+
+I googled around and couldn't find any help on this. Any ideas?
+
+warning: I am a linux semi-noob
+
+Corey
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070923/b85b059f/attachment.html">https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070923/b85b059f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000031.html">[at76c503a-user] Developer mailing list/code repository
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[at76c503a-user] wrong firmware version with Belkin F5D6050	and	kernel 2.6.22.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

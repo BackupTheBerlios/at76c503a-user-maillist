@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] can't compile driver on debian etch
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20can%27t%20compile%20driver%20on%20debian%20etch&In-Reply-To=%3C20070427142858.GB25250%40bloms.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000006.html">
+   <LINK REL="Next"  HREF="000008.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] can't compile driver on debian etch</H1>
+    <B>Dieter Bloms</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20can%27t%20compile%20driver%20on%20debian%20etch&In-Reply-To=%3C20070427142858.GB25250%40bloms.de%3E"
+       TITLE="[at76c503a-user] can't compile driver on debian etch">dieter at bloms.de
+       </A><BR>
+    <I>Fri Apr 27 16:28:58 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000006.html">[at76c503a-user] Kernel, 2.6.20, ad-hoc bug
+</A></li>
+        <LI>Next message: <A HREF="000008.html">[at76c503a-user] can't compile driver on debian etch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#7">[ date ]</a>
+              <a href="thread.html#7">[ thread ]</a>
+              <a href="subject.html#7">[ subject ]</a>
+              <a href="author.html#7">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I've tied to compile the driver on my fresh installed debian etch, but
+can't do it for actual git-clone from <A HREF="http://honk.sigxcpu.org/git/at76c503a.git/">http://honk.sigxcpu.org/git/at76c503a.git/</A>
+
+--snip--
+video:/usr/src/neu/at76c503a# uname -a
+Linux video 2.6.18-4-686 #1 SMP Mon Mar 26 17:17:36 UTC 2007 i686 GNU/Linux
+make[1]: Entering directory `/usr/src/linux-headers-2.6.18-4-686'
+  CC [M]  /usr/src/neu/at76c503a/at76_usb.o
+/usr/src/neu/at76c503a/at76_usb.c: In function &#8216;at76_dump_bss_table&#8217;:
+/usr/src/neu/at76c503a/at76_usb.c:2639: warning: unused variable &#8216;obuf_s&#8217;
+/usr/src/neu/at76c503a/at76_usb.c:5862:52: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c: In function &#8216;alloc_new_device&#8217;:
+/usr/src/neu/at76c503a/at76_usb.c:5862: error: &#8216;INIT_WORK&#8217; undeclared (first use in this function)
+/usr/src/neu/at76c503a/at76_usb.c:5862: error: (Each undeclared identifier is reported only once
+/usr/src/neu/at76c503a/at76_usb.c:5862: error: for each function it appears in.)
+/usr/src/neu/at76c503a/at76_usb.c:5863:54: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5864:54: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5865:40: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5866:56: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5867:46: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5868:56: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5869:46: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5870:40: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5871:54: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5872:52: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+/usr/src/neu/at76c503a/at76_usb.c:5873:50: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+make[2]: *** [/usr/src/neu/at76c503a/at76_usb.o] Fehler 1
+make[1]: *** [_module_/usr/src/neu/at76c503a] Fehler 2
+make[1]: Leaving directory `/usr/src/linux-headers-2.6.18-4-686'
+make: *** [modules] Fehler 2
+--snip--	
+
+does anybody know a solution ?
+
+
+-- 
+Best reguards
+
+  Dieter
+
+--
+I do not get viruses because I do not use MS software.
+If you use Outlook then please do not put my email address in your
+address-book so that WHEN you get a virus it won't use my address in the
+From field.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070427/0b497daf/attachment.pgp">https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070427/0b497daf/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000006.html">[at76c503a-user] Kernel, 2.6.20, ad-hoc bug
+</A></li>
+	<LI>Next message: <A HREF="000008.html">[at76c503a-user] can't compile driver on debian etch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#7">[ date ]</a>
+              <a href="thread.html#7">[ thread ]</a>
+              <a href="subject.html#7">[ subject ]</a>
+              <a href="author.html#7">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] at76c503a crashes on 2.6.21.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C31563448.5180631181270314698.JavaMail.root%40vms074.mailsrvcs.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000016.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] at76c503a crashes on 2.6.21.3</H1>
+    <B>alupu at verizon.net</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C31563448.5180631181270314698.JavaMail.root%40vms074.mailsrvcs.net%3E"
+       TITLE="[at76c503a-user] at76c503a crashes on 2.6.21.3">alupu at verizon.net
+       </A><BR>
+    <I>Fri Jun  8 04:38:34 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000016.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Pavel,
+
+My WUSB11 works perfectly now (on 2.6.21.3), so
+MANY SINCERE THANKS to you, Joerg, other developers
+and anybody who stood by me during these trying times.
+----
+Now for a couple of odds &amp; ends, more or less interesting, more or less pleasant.
+
+1. Alex wrote:
+&gt;&gt;<i> []$ iwconfig
+</I>&gt;&gt;<i> ...
+</I>&gt;&gt;<i>  Warning: Driver for device eth1 has been compiled with version 22
+</I>&gt;&gt;<i>  of Wireless Extension, while this program supports up to version 20.
+</I>&gt;&gt;<i>  Some things may be broken...
+</I>&gt;&gt;<i> ...
+</I>&gt;&gt;<i> Despite my best attempts (maybe not good enough, though) I haven't yet
+</I>&gt;&gt;<i> managed to iwconfig the device to the point where the wireless gets
+</I>&gt;&gt;<i> off the ground.
+</I>&gt;&gt;<i> What should I do next?
+</I>
+Pavel wrote:
+&gt;<i> I believe all common stuff should be OK.
+</I>&gt;<i> Support for wireless extensions 21 and 22 is only present
+</I>&gt;<i> in pre-releases of Wireless Tools. ...
+</I>&gt;<i> You'll need 29-pre21beta for v21 and v22 support.
+</I>
+I cannot produce hard evidence one way or another;
+I feel that despite numerous and arduous attempts,
+I was able to set up the WUSB11 connectivity
+(rather quickly and painlessly) only _after_ 
+I installed 'wireless_tools.29.pre21', per your suggestion
+(which eliminated the ominous Warning above as well).
+
+2. It's going to be a little heavy, but I'll reproduce Pavel's &quot;recommendations&quot; section in its entirety, for easy reference on a few of my comments:
+
+Start of Section
+~~~~~~~~~~~~~~~~
+On 2007/06/06 Wed PM 11:45:50 EDT Pavel Roskin wrote in answer to
+what, on Wed, 2007-06-06 at 21:56 -0500, <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">alupu at verizon.net</A> wrote:
+
+Alex:
+&gt;<i> Unfortunately, I might have run into another problem - 
+</I>&gt;<i> now that the driver loads successfully.
+</I>
+Pavel:
+Please be more specific.  A good problem report should include what you
+are trying to achieve, what you are doing and what you are getting.
+Neither seems to be described well.
+
+Please avoid non-technical terms (like &quot;gets off the ground&quot;) unless you
+are absolutely sure that everybody understands what you mean.
+
+If you need general help with wireless networking, it's probably a wrong
+list.  I'm sure there are good resources about Linux wireless on the
+web.
+
+Alex:
+&gt;<i> In case I haven't exhausted all the possibilities and it has something
+</I>&gt;<i> to do with the unsettling warning,
+</I>
+You didn't describe a single command.
+
+If the problem is generic, I suggest doing some search first, maybe
+finding a more generic list.  Still, you'll need to post the details,
+not just that you &quot;exhausted all the possibilities&quot;.
+End of Section
+~~~~~~~~~~~~~~
+
+2a. In reference to the last paragraph, there's a misinterpretation somewhere.
+I said &quot;In case I haven't exhausted ...&quot; which clearly implies
+- my awareness of the _possibility_ that there might be other ways I hadn't explored
+- a trace of humility on my part that I might be wrong despite all the evidence to the contrary!
+
+So let's write this off to &quot;false alert&quot;, shall we?.
+
+2b. There seems to be a slight impression that I've been into &quot;problem reports&quot; here (in the sense of &quot;bug&quot; submissions).
+FWIW, to clarify my intentions I'll make a few comments:
+If one looks closely, all my thread turns out to have dealt with mismanagement, not problems/bugs.
+Bugs can happen in the best families, and we all know Linux programmers/developers are among the best, most enthusiastic and generous.
+I don't see a problem here.
+The real _problem_ has always been &quot;mismanagement&quot;, as they say in corporate circles.
+A few specific examples from this thread (which should be clearly taken as _constructive_ criticisms and presented with a smile on my face):
+
+2b1.  I started the thread after an eternity, so to speak, of banging my head against the compile-averse v13 driver.
+Joerg could've spared a lot of inconvenience to _himself_ first and to others by adding a simple line on his download site to the effect that the victim
+should join a user-list first and _then_, maybe, write to his prominently displayed address directly (and only with personal matters, I suppose - He never answered my original mail on the v13 compile issue).
+It might also help a little mention that there just might be some other folks hanging around updating and keeping his excellent original work in sync with all the kernel iterations, etc.
+
+2b2.  Your reply (super helpful, as I said repeatedly) was presented in a caj-like manner (hey, didn't you know there's a driver around, to get you out
+of your misery?) instead of being properly published somewhere to avoid somebody else falling into the same trap.
+
+2b3.  The approach above also wrongly conditions the victim to expect that - if she knows anything about computers at all - on &quot;honest&quot; failure to expect another fix floating around and not to blame herself unnecessarily and/or foolishly press to the bitter end.
+This is why this time I stopped my futile attempts to set up the driver while a &quot;Message&quot; like that was hovering above my head and asked for help as soon as I could (&quot;help&quot;, in the sense, hey, where's the fix? Not what I did wrong or missed).
+I guessed (rightly) that somehow, somewhere, a good Samaritan will find a &quot;pre&quot;, a &quot;beta&quot;, something, lying somewhere for me.  I didn't care about what I did technically (and nobody should either, in this situation); I knew I had a chance!
+You came through for me again (again, caj-like - that's fine, no problem with _me_ though).
+Obviously there must be something wrong in all this when for the same person, setting up the friggin' thing on Windows takes a minute or so (especially after its having been around for years).
+This whole process can clearly be managed (NOT programmed) better with a lot less pain to the user.
+
+All in all, there's a happy ending after all and we should all rejoice and be thankful.
+
+Thank you very much.
+Best wishes,
+-- Alex
+
+PS Sorry about &quot;gets off the ground&quot;
+I meant &quot;where the wireless starts flying&quot; :-)
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000016.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

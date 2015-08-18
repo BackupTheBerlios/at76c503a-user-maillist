@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] at76c503a crashes on 2.6.21.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C28970956.13602941181068198354.JavaMail.root%40vms229.mailsrvcs.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000010.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] at76c503a crashes on 2.6.21.3</H1>
+    <B>alupu at verizon.net</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C28970956.13602941181068198354.JavaMail.root%40vms229.mailsrvcs.net%3E"
+       TITLE="[at76c503a-user] at76c503a crashes on 2.6.21.3">alupu at verizon.net
+       </A><BR>
+    <I>Tue Jun  5 20:29:58 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000010.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+i686-pc-linux-gnu 2.6.21.3,
+gcc 4.1.2, glibc 2.5, udev 111
+at76c503a-0.13.tar.gz
+ (md5sum: d34f6c8c4a790eaa5bd2cfd23f239340)
+Linksys WUSB11 v2.6
+
+In order to compile the driver at all,
+I had to use three workarounds:
+
+1. In /linux-2.6.21.3/include/linux/ added symlink
+ config.h -&gt; /linux-2.6.21.3/include/config/x86/find/smp/config.h
+
+2. In /linux-2.6.21.3/include/linux/ added symlink
+ devfs_fs_kernel.h -&gt; /usr/include/linux/devfs_fs_kernel.h
+
+3. To avoid the error:
+    /usr/src/at76c503a/at76c503.c:7037:38: error:
+    macro &quot;INIT_WORK&quot; passed 3 arguments,
+    but takes just 2,
+   I _alternately_ did:
+  3a. In 'at76c503.c' changed
+       &quot;INIT_WORK (&amp;dev-&gt;kevent, kevent, dev);&quot;
+       to &quot;INIT_WORK (&amp;dev-&gt;kevent, kevent);&quot;
+  3b. Left 'at76c503.c' unchanged and
+      in /linux-2.6.21.3/include/linux/ replaced 
+      'workqueue.h' with the symlink
+      workqueue.h -&gt; /usr/include/linux/workqueue.h
+
+Whether 3a or 3b, after installing the driver
+('make install'),
+on plugging the device in the USB 2.0 port,
+the driver does come up with some clean messages
+(correctly? - no mention of registering &quot;wlan0&quot;)
+but at that point the system crashes (freezes),
+fortunately softly (Ctrl-Alt-Del).
+
+Please help,
+thank you very much,
+-- Alex
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000010.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

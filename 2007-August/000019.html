@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] Problem with 2.6.22 kernel
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Problem%20with%202.6.22%20kernel&In-Reply-To=%3C1186854524.3557.57.camel%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000018.html">
+   <LINK REL="Next"  HREF="000020.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] Problem with 2.6.22 kernel</H1>
+    <B>Mark Sansome</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Problem%20with%202.6.22%20kernel&In-Reply-To=%3C1186854524.3557.57.camel%40localhost.localdomain%3E"
+       TITLE="[at76c503a-user] Problem with 2.6.22 kernel">msansome at troodos.demon.co.uk
+       </A><BR>
+    <I>Sat Aug 11 19:48:44 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000018.html">[at76c503a-user] [ANNOUNCE] at76_usb 0.16 released
+</A></li>
+        <LI>Next message: <A HREF="000020.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello all,
+
+I have been running the at76c503a driver quite successfully for a number
+of years now (the latest being v.0.14dev on a  2.6.20 kernel) on Fedora
+Core x (currently FC6).
+
+Today a kernel update became available in the Fedora repository so I
+upgraded. I now have the following : (uname -a)
+
+2.6.22.1-32.fc6 #1 SMP Wed Aug 1 15:15:33 EDT 2007 i686 i686 i386
+GNU/Linux
+
+My current (0.14dev) at76 driver failed to build (I can post error
+messages if required) but I was not concerned as I had seen the
+announcement about 0.16 and thought it about time for an update anyway.
+
+I downloaded 0.16 from cvs and it compiled without error. On rebooting
+however wlan0 failed to load. I am unable to bring the interface up with
+ifconfig wlan0 up or with iwlist wlan0 scan. There are no errors (as far
+as I can tell) reported in dmesg. lsmod shows that at76_usb is loaded.
+
+I have had to drop back to kernel v.2.6.20 (which is a pain because Yum
+automatically upgraded my nvidia drivers to match the 2.6.22 kernel so
+at the moment I don't have an X session!).
+
+My question (1) :
+Does anyone else have at76_usb working with a 2.6.22 kernel? (and
+ideally anyone on FC6?)
+
+My question (2) :
+Do I require wireless-tools &gt; wireless-tools-28-1.fc6?
+If so this will be a non-trivial exercise on FC6 as when I tried to
+update (using Yum) from the &quot;development&quot; repository (v.28 is the latest
+available in &quot;core&quot;) to wireless-tools-29-0.1.pre21.fc8 it wanted to
+update Network Tools which wanted a whole new KDE which wanted ... just
+about every package installed... - it eventually failed dependency
+checks...
+
+Thanks in advance for your help...
+
+Mark
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070811/a589c686/attachment.pgp">https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070811/a589c686/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000018.html">[at76c503a-user] [ANNOUNCE] at76_usb 0.16 released
+</A></li>
+	<LI>Next message: <A HREF="000020.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

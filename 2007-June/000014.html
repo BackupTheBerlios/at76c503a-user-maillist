@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] at76c503a crashes on 2.6.21.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C46672CB3.6050103%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000012.html">
+   <LINK REL="Next"  HREF="000015.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] at76c503a crashes on 2.6.21.3</H1>
+    <B>Joerg Albert</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C46672CB3.6050103%40gmx.de%3E"
+       TITLE="[at76c503a-user] at76c503a crashes on 2.6.21.3">joerg.albert at gmx.de
+       </A><BR>
+    <I>Wed Jun  6 23:52:51 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000012.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+        <LI>Next message: <A HREF="000015.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Pavel Roskin wrote:
+&gt;<i> Quoting <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">alupu at verizon.net</A>:
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> I'm using this device on another machine (Windows) as well.
+</I>&gt;&gt;<i> If I install the above firmware, what will be the consequences?
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> &gt;From what I see in the code, the firmware is only loaded into the device if it's
+</I>&gt;<i> not already present or the present version is too old.  So, the possibilities
+</I>&gt;<i> would be:
+</I>&gt;<i>
+</I>&gt;<i> 1) The firmware is not present at startup.  This means that the firmware is
+</I>&gt;<i> volatile and would disappear when the device is reconnected to the Windows
+</I>&gt;<i> machine, leaving the card in the same state as it was before connecting to the
+</I>&gt;<i> Linux machine.
+</I>&gt;<i>
+</I>&gt;<i> 2) The firmware is old and gets replaced by the driver.  The code for loading
+</I>&gt;<i> the firmware is the same as for the case when there is no firmware, so the
+</I>&gt;<i> firmware is not likely to be flashed permanently.
+</I>&gt;<i>
+</I>&gt;<i> 3) The firmware is present at startup and is new enough.  In this case, the
+</I>&gt;<i> driver is asking for the firmware unnecessarily.  No firmware will be loaded by
+</I>&gt;<i> the Linux driver.
+</I>&gt;<i>
+</I>&gt;<i> Neither case should affect operation on a separate Windows machine.  But it's
+</I>&gt;<i> just my speculation.  I cannot guarantee anything.  If you cannot afford any
+</I>&gt;<i> risks, please use a separate card.
+</I>&gt;<i>   
+</I>IMHO the firmware is stored in volatile memory unless you use one of the
+_very_ rare devices equipped with external flash.
+So unplugging the device will remove any firmware previously loaded.
+Some guys had problems with dual-boot machines (Linux and Windows) after
+switching the OS
+without power-cycling  the Atmel USB WLAN device, thereby keeping the
+previously loaded firmware.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000012.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+	<LI>Next message: <A HREF="000015.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

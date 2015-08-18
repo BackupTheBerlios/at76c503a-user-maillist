@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] at76c503a crashes on 2.6.21.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C1181187950.19203.18.camel%40dv%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000015.html">
+   <LINK REL="Next"  HREF="000017.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] at76c503a crashes on 2.6.21.3</H1>
+    <B>Pavel Roskin</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C1181187950.19203.18.camel%40dv%3E"
+       TITLE="[at76c503a-user] at76c503a crashes on 2.6.21.3">proski at gnu.org
+       </A><BR>
+    <I>Thu Jun  7 05:45:50 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000015.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+        <LI>Next message: <A HREF="000017.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, 2007-06-06 at 21:56 -0500, <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">alupu at verizon.net</A> wrote:
+
+&gt;<i> Unfortunately, I might have run into another problem - now that the
+</I>&gt;<i> driver loads successfully.
+</I>&gt;<i> Despite my best attempts (maybe not good enough, though) I haven't yet
+</I>&gt;<i> managed to iwconfig the device to the point where the wireless gets
+</I>&gt;<i> off the ground.
+</I>
+Please be more specific.  A good problem report should include what you
+are trying to achieve, what you are doing and what you are getting.
+Neither seems to be described well.
+
+Please avoid non-technical terms (like &quot;gets off the ground&quot;) unless you
+are absolutely sure that everybody understands what you mean.
+
+If you need general help with wireless networking, it's probably a wrong
+list.  I'm sure there are good resources about Linux wireless on the
+web.
+
+&gt;<i> In case I haven't exhausted all the possibilities and it has something
+</I>&gt;<i> to do with the unsettling warning,
+</I>
+You didn't describe a single command.
+
+&gt;<i> []$ iwconfig
+</I>&gt;<i> lo        no wireless extensions.
+</I>&gt;<i> ...
+</I>&gt;<i> Warning: Driver for device eth1 has been compiled with version 22
+</I>&gt;<i> of Wireless Extension, while this program supports up to version 20.
+</I>&gt;<i> Some things may be broken...
+</I>
+I believe all common stuff should be OK.  Support for wireless
+extensions 21 and 22 is only present in pre-releases of Wireless Tools.
+
+&gt;<i>  what should I do next?
+</I>
+If you have reasons to suspect that the problem is driver specific,
+describe it.  Remember three keywords: goal, action, result.  Make sure
+each is covered.
+
+If the problem is generic, I suggest doing some search first, maybe
+finding a more generic list.  Still, you'll need to post the details,
+not just that you &quot;exhausted all the possibilities&quot;.
+
+One thing useful in either case would be to bring the interface up and
+scan:
+
+ifconfig eth1 up
+iwlist eth1 scan
+
+&gt;<i> [FWIW, iwconfig is the latest, &quot;Wireless-Tools version 28&quot; (wireless_tools.28)]
+</I>
+It supports wireless extensions up to version 20.  You'll need 29-pre21
+beta for v21 and v22 support.
+
+-- 
+Regards,
+Pavel Roskin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000015.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+	<LI>Next message: <A HREF="000017.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

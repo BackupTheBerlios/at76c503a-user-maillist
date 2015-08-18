@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] problems running 2.6.20-rt5 and at76_usb
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20problems%20running%202.6.20-rt5%20and%20at76_usb&In-Reply-To=%3C45D10FC3.1050200%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] problems running 2.6.20-rt5 and at76_usb</H1>
+    <B>Dragan Noveski</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20problems%20running%202.6.20-rt5%20and%20at76_usb&In-Reply-To=%3C45D10FC3.1050200%40gmx.net%3E"
+       TITLE="[at76c503a-user] problems running 2.6.20-rt5 and at76_usb">perodog at gmx.net
+       </A><BR>
+    <I>Tue Feb 13 02:09:23 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[at76c503a-user] problems running 2.6.20-rt5 and at76_usb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi to the list!
+
+i have a problem here with just compiled linux-2.6.20-rt5 on debian testing.
+
+well, the kernel is 2.6.20, the rt patch comes from:
+
+
+<A HREF="http://people.redhat.com/mingo/realtime-preempt/older/">http://people.redhat.com/mingo/realtime-preempt/older/</A>
+
+
+with my last kernel 2.6.18 i also was using ingo molnars patches for 
+realtime audio, everything was working fine.
+for the network i am using here atmel-usb-addapter.
+
+ok, the problem is, that the latest source-code (at76_usb-0.14beta1) 
+does not compile:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">nowhiskey at murija2</A>:~/software/wlan/at76_usb-0.14beta1$ make
+make -C /usr/src/linux-2.6.20
+M=/home/nowhiskey/software/wlan/at76_usb-0.14beta1
+KERNELRELEASE=2.6.20-rt5Centrino modules
+make[1]: Entering directory `/usr/src/linux-2.6.20'
+  CC [M]  /home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.o
+/home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:21:26: error:
+linux/config.h: Datei oder Verzeichnis nicht gefunden
+/home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:6374:38: error:
+macro &quot;INIT_WORK&quot; passed 3 arguments, but takes just 2
+/home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c: In function
+'alloc_new_device':
+/home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:6374: error:
+'INIT_WORK' undeclared (first use in this function)
+/home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:6374: error:
+(Each undeclared identifier is reported only once
+/home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:6374: error: for
+each function it appears in.)
+make[2]: *** [/home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.o]
+Fehler 1
+make[1]: *** [_module_/home/nowhiskey/software/wlan/at76_usb-0.14beta1]
+Fehler 2
+make[1]: Leaving directory `/usr/src/linux-2.6.20'
+make: *** [modules] Fehler 2
+<A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">nowhiskey at murija2</A>:~/software/wlan/at76_usb-0.14beta1$
+
+
+in /ust/include/linux, there is a config.h file.
+the link to the /usr/src/linux is correct, showing at the 
+/usr/src/linux-2.6.20/arch/i383/boot/bzImage sourcetree.
+
+i tried already another solution, compiling the cvs-tarball 
+(at76c503a-cvsroot.tar.gz), there compiling works good, but after 
+starting the network, it works for short time, after that the console 
+crashes showing:
+
+
+Message from <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">syslogd at localhost</A> at Mon Feb 12 23:41:19 2007 ...
+localhostlocalhostlocalhostlocalhostlocalhost     kernel:  [&lt;c012750e&gt;]
+kthread+0x0/0xcakernel:  [&lt;c0103857&gt;] kernel_thread_helper+0x7/0x10kernel:
+=======================kernel: Code: 86 a0 07 00 00 0f af 86 a4 07 00 00 0f
+b6 5f 01 0f af d8 a1 60 a3 3a c0 e8 05 4d e4 df 89 c2 89 d8 2b 96 a8 07 00
+00 89 d1 31 d2 &lt;f7&gt; f1 88 46 66 a1 60 a3 3a c0 e8 e8 4c e4 df c7 86 a4 07 00
+00 kernel: EIP: [&lt;e02d5fb7&gt;] update_wstats+0x6c/0xb6 [at76_usb] SS:ESP
+0068:df681e3c
+
+
+i am using this script to access the network:
+
+#!/bin/sh
+    iwconfig wlan0 mode ad-hoc essid olsr.freifunk.net channel 10
+    ifconfig wlan0 104.130.30.9
+    ifconfig wlan0 up
+    olsrd
+
+
+it worked now good with other kernels.
+
+on the boot the module gets loaded and the firmware 
+(at76_usb-firmware-0.1) too, but after the crash, i am not even able to 
+rmmod &quot;at76_usb&quot;, i am only able to do a hard reset!
+
+if you need more information on my system, please tell me that, but give 
+me the instructions how i get the information out of my machine, 
+because  i am still a bloody noob and don&#180;t know very much of 
+linux-terminologies!
+
+
+hope that someone can help me!
+cheers,
+doc
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[at76c503a-user] problems running 2.6.20-rt5 and at76_usb
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

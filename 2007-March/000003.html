@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] Kernel Panic with at76c503a
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Kernel%20Panic%20with%20at76c503a&In-Reply-To=%3CBAY117-F3896DB00D357B97D9B1499E2750%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000002.html">
+   <LINK REL="Next"  HREF="000004.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] Kernel Panic with at76c503a</H1>
+    <B>Owen Walsh</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Kernel%20Panic%20with%20at76c503a&In-Reply-To=%3CBAY117-F3896DB00D357B97D9B1499E2750%40phx.gbl%3E"
+       TITLE="[at76c503a-user] Kernel Panic with at76c503a">walsh_owen at hotmail.com
+       </A><BR>
+    <I>Tue Mar 20 22:48:33 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000002.html">[at76c503a-user] problems running 2.6.20-rt5 and at76_usb
+</A></li>
+        <LI>Next message: <A HREF="000004.html">[at76c503a-user] Kernel Panic with at76c503a
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello all,
+
+I have had a lot of success using these drivers (thank you!), but on a newer 
+system of mine I am getting intermittent kernel panics.  The kernel log 
+seems to indicate that it's happening in the at76_usb module:
+
+...
+Mar 20 21:20:23 obox eth1394: eth2: IEEE-1394 IPv4 over 1394 Ethernet 
+(fw-host1)
+Mar 20 21:20:23 obox /root/tmp/at76c503a/at76c503.c: Atmel at76c50x USB 
+Wireless LAN Driver 0.14dev loading
+Mar 20 21:20:23 obox ieee1394: Host added: ID:BUS[1-00:1023]  
+GUID[0011d8000096d129]
+Mar 20 21:20:23 obox /root/tmp/at76c503a/at76c503.c: firmware version 
+1.101.2 #84 (fcs_len 4)
+Mar 20 21:20:23 obox /root/tmp/at76c503a/at76c503.c: device's MAC 
+00:09:5b:30:d2:f5, regulatory domain FCC (U.S) (id 16)
+Mar 20 21:20:23 obox /root/tmp/at76c503a/at76c503.c: registered wlan0
+Mar 20 21:20:23 obox usbcore: registered new interface driver at76_usb
+Mar 20 21:20:23 obox EXT3 FS on sda3, internal journal
+Mar 20 21:20:23 obox kjournald starting.  Commit interval 5 seconds
+Mar 20 21:20:23 obox EXT3 FS on sda4, internal journal
+Mar 20 21:20:23 obox EXT3-fs: mounted filesystem with ordered data mode.
+Mar 20 21:20:23 obox Adding 4000176k swap on /dev/sda2.  Priority:-1 
+extents:1 across:4000176k
+Mar 20 21:20:23 obox Real Time Clock Driver v1.12ac
+Mar 20 21:20:26 obox /root/tmp/at76c503a/at76c503.c: 2799: assertion 
+dev-&gt;istate == INIT failed
+Mar 20 21:20:27 obox /root/tmp/at76c503a/at76c503.c: 2769: assertion 
+dev-&gt;istate == SCANNING failed
+Mar 20 21:21:57 obox Linux version 2.6.19-gentoo-r5 (<A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">root at obox</A>) (gcc version 
+4.1.1 (Gentoo 4.1.1-r3)) #2 SMP PREEMPT Wed Mar 7 21:37:39 PST 2007
+Mar 20 21:21:57 obox Command line: root=/dev/ram0 real_root=/dev/sda3 
+vga=791 splash=silent init=/linuxrc ramdisk_size=4278 CONSOLE=/dev/tty1
+...
+
+Sometimes it will panic on boot, othertimes it will run for quite some time 
+before a panic occurs.  I am using a CVS snapshot as of today (March 20, 
+2007), but this also occurs with the Gentoo package (14_beta1).
+
+My specs are:
+&gt;<i>uname -a
+</I>Linux obox 2.6.19-gentoo-r5 #2 SMP PREEMPT Wed Mar 7 21:37:39 PST 2007 
+x86_64 AMD Athlon(tm) 64 Processor 3200+ AuthenticAMD GNU/Linux
+
+&gt;<i>lsusb
+</I>Bus 003 Device 001: ID 0000:0000
+Bus 004 Device 001: ID 0000:0000
+Bus 001 Device 001: ID 0000:0000
+Bus 002 Device 004: ID 0864:4102 NetGear, Inc. MA101 802.11b Adapter
+Bus 002 Device 003: ID 046d:c03d Logitech, Inc.
+Bus 002 Device 001: ID 0000:0000
+
+Thanks,
+Owen
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000002.html">[at76c503a-user] problems running 2.6.20-rt5 and at76_usb
+</A></li>
+	<LI>Next message: <A HREF="000004.html">[at76c503a-user] Kernel Panic with at76c503a
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

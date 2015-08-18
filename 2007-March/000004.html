@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] Kernel Panic with at76c503a
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Kernel%20Panic%20with%20at76c503a&In-Reply-To=%3C1174444052.9513.5.camel%40dv%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000003.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] Kernel Panic with at76c503a</H1>
+    <B>Pavel Roskin</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Kernel%20Panic%20with%20at76c503a&In-Reply-To=%3C1174444052.9513.5.camel%40dv%3E"
+       TITLE="[at76c503a-user] Kernel Panic with at76c503a">proski at gnu.org
+       </A><BR>
+    <I>Wed Mar 21 03:27:32 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000003.html">[at76c503a-user] Kernel Panic with at76c503a
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[at76c503a-user] Kernel, 2.6.20, ad-hoc bug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, Owen!
+
+On Tue, 2007-03-20 at 14:48 -0700, Owen Walsh wrote:
+&gt;<i> Hello all,
+</I>&gt;<i> 
+</I>&gt;<i> I have had a lot of success using these drivers (thank you!), but on a newer 
+</I>&gt;<i> system of mine I am getting intermittent kernel panics.  The kernel log 
+</I>&gt;<i> seems to indicate that it's happening in the at76_usb module:
+</I>
+The text you posted doesn't contain any indication of a panic.  A panic
+would cause a stack trace printed on the console.
+
+You can find some information about capturing the kernel panic in
+Documentation/oops-tracing.txt in the kernel sources.
+
+&gt;<i> Sometimes it will panic on boot, othertimes it will run for quite some time 
+</I>&gt;<i> before a panic occurs.  I am using a CVS snapshot as of today (March 20, 
+</I>&gt;<i> 2007), but this also occurs with the Gentoo package (14_beta1).
+</I>
+Please use the version from git:
+
+git-clone <A HREF="http://honk.sigxcpu.org/git/at76c503a.git/">http://honk.sigxcpu.org/git/at76c503a.git/</A>
+
+The CVS version is behind, and I think it will be obsoleted once the
+driver goes into the kernel.
+
+-- 
+Regards,
+Pavel Roskin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000003.html">[at76c503a-user] Kernel Panic with at76c503a
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[at76c503a-user] Kernel, 2.6.20, ad-hoc bug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

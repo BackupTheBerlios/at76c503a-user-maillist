@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] problems running 2.6.20-rt5 and at76_usb
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20problems%20running%202.6.20-rt5%20and%20at76_usb&In-Reply-To=%3C1173079000.23670.21.camel%40dv%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] problems running 2.6.20-rt5 and at76_usb</H1>
+    <B>Pavel Roskin</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20problems%20running%202.6.20-rt5%20and%20at76_usb&In-Reply-To=%3C1173079000.23670.21.camel%40dv%3E"
+       TITLE="[at76c503a-user] problems running 2.6.20-rt5 and at76_usb">proski at gnu.org
+       </A><BR>
+    <I>Mon Mar  5 08:16:40 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000003.html">[at76c503a-user] Kernel Panic with at76c503a
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, 2007-02-13 at 02:09 +0100, Dragan Noveski wrote:
+&gt;<i> ok, the problem is, that the latest source-code (at76_usb-0.14beta1) 
+</I>&gt;<i> does not compile:
+</I>
+The INIT_WORK problem is fixed in the git repository that is going to be
+into the kernel.  You can get the source by this command:
+
+git-clone <A HREF="http://honk.sigxcpu.org/git/at76c503a.git/">http://honk.sigxcpu.org/git/at76c503a.git/</A>
+
+&gt;<i> Message from <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">syslogd at localhost</A> at Mon Feb 12 23:41:19 2007 ...
+</I>&gt;<i> localhostlocalhostlocalhostlocalhostlocalhost     kernel:  [&lt;c012750e&gt;]
+</I>&gt;<i> kthread+0x0/0xcakernel:  [&lt;c0103857&gt;] kernel_thread_helper+0x7/0x10kernel:
+</I>&gt;<i> =======================kernel: Code: 86 a0 07 00 00 0f af 86 a4 07 00 00 0f
+</I>&gt;<i> b6 5f 01 0f af d8 a1 60 a3 3a c0 e8 05 4d e4 df 89 c2 89 d8 2b 96 a8 07 00
+</I>&gt;<i> 00 89 d1 31 d2 &lt;f7&gt; f1 88 46 66 a1 60 a3 3a c0 e8 e8 4c e4 df c7 86 a4 07 00
+</I>&gt;<i> 00 kernel: EIP: [&lt;e02d5fb7&gt;] update_wstats+0x6c/0xb6 [at76_usb] SS:ESP
+</I>&gt;<i> 0068:df681e3c
+</I>
+Next time please try to capture the kernel output.  You can do it by
+running dmesg.  The system can become unstable after such problems, so
+it would be best if you redirect dmesg output to a file and then reboot.
+
+&gt;<i>     iwconfig wlan0 mode ad-hoc essid olsr.freifunk.net channel 10
+</I>
+I can reproduce the crash in ad-hoc mode!  It's a division by zero in
+calc_qual(), which is called by update_wstats().
+
+The code is not careful to check if the time has changed since the last
+measurement.  And update_wstats() is called from rx_mgmt() in ad-hoc
+mode.  Suppose the card gets more than one management frame in a jiffy
+(which can be from 1 to 10 milliseconds), and we have division by zero.
+That's actually a remove denial of service attack!
+
+I think the fix should be to update quality at most once a second.  I'm
+sending a patch in a separate message.
+
+-- 
+Regards,
+Pavel Roskin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000003.html">[at76c503a-user] Kernel Panic with at76c503a
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

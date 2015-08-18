@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> No subject
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.0.1331727146.28713.at76c503a-user%40lists.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>No subject</H1>
+    <B></B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.0.1331727146.28713.at76c503a-user%40lists.berlios.de%3E"
+       TITLE="No subject">
+       </A><BR>
+    <I>Wed Mar 14 13:12:27 CET 2012</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>not already present or the present version is too old.  So, the possibilities
+would be:
+
+1) The firmware is not present at startup.  This means that the firmware is
+volatile and would disappear when the device is reconnected to the Windows
+machine, leaving the card in the same state as it was before connecting to the
+Linux machine.
+
+2) The firmware is old and gets replaced by the driver.  The code for loading
+the firmware is the same as for the case when there is no firmware, so the
+firmware is not likely to be flashed permanently.
+
+3) The firmware is present at startup and is new enough.  In this case, the
+driver is asking for the firmware unnecessarily.  No firmware will be loaded by
+the Linux driver.
+
+Neither case should affect operation on a separate Windows machine.  But it's
+just my speculation.  I cannot guarantee anything.  If you cannot afford any
+risks, please use a separate card.
+
+--
+Regards,
+Pavel Roskin
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] at76c503a crashes on 2.6.21.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C18130155.4647351181185015521.JavaMail.root%40vms073.mailsrvcs.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000014.html">
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] at76c503a crashes on 2.6.21.3</H1>
+    <B>alupu at verizon.net</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C18130155.4647351181185015521.JavaMail.root%40vms073.mailsrvcs.net%3E"
+       TITLE="[at76c503a-user] at76c503a crashes on 2.6.21.3">alupu at verizon.net
+       </A><BR>
+    <I>Thu Jun  7 04:56:55 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000014.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+        <LI>Next message: <A HREF="000016.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Alex:
+&gt;&gt;<i> I'm using this device on another machine (Windows) as well.
+</I>&gt;&gt;<i> If I install the above firmware, what will be the consequences?
+</I>
+On 2007/06/06 Wed AM 12:02:47 EDT Pavel Roskin wrote:
+
+&gt;<i> &lt;snip - a very solid analysis of the situation
+</I>&gt;<i> [shouldn't] affect operation on a separate Windows machine.  
+</I>
+On 2007/06/06 Wed PM 05:52:51 EDT Joerg Albert wrote:
+
+&gt;<i> the firmware is stored in volatile memory unless you use one of the
+</I>_very_ rare devices equipped with external flash.
+&gt;<i> So unplugging the device will remove any firmware previously loaded.
+</I>&lt;snip&gt;
+
+Thank youse guys for the excellent points, clarifications and assistance.
+For completeness, my particular device falls into the category
+&quot;NOT_SO_very_rare&quot;,
+so everything is copacetic, the device still works on the Win machine
+despite (or should I say because of) the Berlios firmware.  Thanks again.
+For the record, I'm proudly presenting the major attraction:
+&quot;/usr/src/at76c503a/at76_usb.c: registered eth1&quot;
+
+Unfortunately, I might have run into another problem - now that the driver loads successfully.
+Despite my best attempts (maybe not good enough, though) I haven't yet managed to iwconfig the device to the point where the wireless gets off the ground.
+In case I haven't exhausted all the possibilities and it has something to do with the unsettling warning,
+&lt;&lt;
+[]$ iwconfig
+lo        no wireless extensions.
+...
+Warning: Driver for device eth1 has been compiled with version 22
+of Wireless Extension, while this program supports up to version 20.
+Some things may be broken...
+
+eth1      IEEE 802.11b  ESSID:off/any
+          Mode:Managed  Frequency:2.457 GHz  Access Point: Not-Associated
+          Bit Rate:11 Mb/s   Tx-Power=15 dBm
+          Retry limit:8   RTS thr=1536 B   Fragment thr=1536 B
+          Encryption key:off
+          Power Management:off
+          Link Quality:0  Signal level:0  Noise level:0
+          Rx invalid nwid:0  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+&gt;&gt;<i>
+</I>
+ what should I do next?
+
+[FWIW, iwconfig is the latest, &quot;Wireless-Tools version 28&quot; (wireless_tools.28)]
+
+Thank you very much,
+-- Alex
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000014.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+	<LI>Next message: <A HREF="000016.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

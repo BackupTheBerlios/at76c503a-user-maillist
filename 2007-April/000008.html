@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] can't compile driver on debian etch
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20can%27t%20compile%20driver%20on%20debian%20etch&In-Reply-To=%3C1177740492.22166.4.camel%40dv%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000007.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] can't compile driver on debian etch</H1>
+    <B>Pavel Roskin</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20can%27t%20compile%20driver%20on%20debian%20etch&In-Reply-To=%3C1177740492.22166.4.camel%40dv%3E"
+       TITLE="[at76c503a-user] can't compile driver on debian etch">proski at gnu.org
+       </A><BR>
+    <I>Sat Apr 28 08:08:12 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000007.html">[at76c503a-user] can't compile driver on debian etch
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Fri, 2007-04-27 at 16:28 +0200, Dieter Bloms wrote:
+
+&gt;<i> I've tied to compile the driver on my fresh installed debian etch, but
+</I>&gt;<i> can't do it for actual git-clone from <A HREF="http://honk.sigxcpu.org/git/at76c503a.git/">http://honk.sigxcpu.org/git/at76c503a.git/</A>
+</I>&gt;<i> 
+</I>&gt;<i> --snip--
+</I>&gt;<i> video:/usr/src/neu/at76c503a# uname -a
+</I>&gt;<i> Linux video 2.6.18-4-686 #1 SMP Mon Mar 26 17:17:36 UTC 2007 i686 GNU/Linux
+</I>&gt;<i> make[1]: Entering directory `/usr/src/linux-headers-2.6.18-4-686'
+</I>&gt;<i>   CC [M]  /usr/src/neu/at76c503a/at76_usb.o
+</I>&gt;<i> /usr/src/neu/at76c503a/at76_usb.c: In function &#8216;at76_dump_bss_table&#8217;:
+</I>&gt;<i> /usr/src/neu/at76c503a/at76_usb.c:2639: warning: unused variable &#8216;obuf_s&#8217;
+</I>
+I don't know how you got this, but it's probably OK.  It's just
+debugging.
+
+&gt;<i> /usr/src/neu/at76c503a/at76_usb.c:5862:52: error: macro &quot;INIT_WORK&quot; requires 3 arguments, but only 2 given
+</I>
+The driver is written for newer kernels.  INIT_WORK takes 2 arguments
+since Linux 2.6.20.
+
+&gt;<i> does anybody know a solution ?
+</I>
+Pass the first argument to INIT_WORK as the third as well, e.g.
+INIT_WORK(&amp;dev-&gt;work_assoc_done, at76_work_assoc_done, &amp;dev-&gt;work_assoc_done);
+
+-- 
+Regards,
+Pavel Roskin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000007.html">[at76c503a-user] can't compile driver on debian etch
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

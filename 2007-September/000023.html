@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] Problem with 2.6.22 kernel
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Problem%20with%202.6.22%20kernel&In-Reply-To=%3C1189326159.3224.24.camel%40localhost.localdomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000022.html">
+   <LINK REL="Next"  HREF="000024.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] Problem with 2.6.22 kernel</H1>
+    <B>Mark Sansome</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Problem%20with%202.6.22%20kernel&In-Reply-To=%3C1189326159.3224.24.camel%40localhost.localdomain%3E"
+       TITLE="[at76c503a-user] Problem with 2.6.22 kernel">msansome at troodos.demon.co.uk
+       </A><BR>
+    <I>Sun Sep  9 10:22:39 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000022.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+        <LI>Next message: <A HREF="000024.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Pavel,
+
+On Sun, 2007-09-09 at 02:07 -0400, Pavel Roskin wrote:
+&gt;<i> Hello, Mark!
+</I>&gt;<i> 
+</I>&gt;<i> On Wed, 2007-09-05 at 20:18 +0100, Mark Sansome wrote:
+</I>
+&gt;<i> As we can see, the device is called eth1, so problems with wlan0 are
+</I>&gt;<i> irrelevant to the driver.  I suspect wlan0 simply doesn't exist.
+</I>&gt;<i> 
+</I>Yes that's right.
+
+&gt;<i> That's a clear sign that the only wireless device is called eth1.
+</I>&gt;<i> 
+</I>That's the conclusion I have come to...
+
+&gt;<i> &gt; eth1: firmware version 8.101.5-84
+</I>&gt;<i> 
+</I>&gt;<i> There is no firmware with major version 8.  I assumed that the first two
+</I>&gt;<i> numbers (major and minor version) would match the versions provided by
+</I>&gt;<i> Atmel in the text files from which the binary files are generated.
+</I>&gt;<i> 
+</I>I don't understand this bit... 
+&gt;<i> 
+</I>&gt;<i> Since the version mismatch wasn't detected (at least it didn't prevent
+</I>&gt;<i> registering the interface), I assume that either you have a device that
+</I>&gt;<i> doesn't require firmware download, or you are not using version 0.16 as
+</I>&gt;<i> published on berlios.de, or the kernel messages got corrupted somewhere.
+</I>All I can tell you is that I have a Belkin F5D6050 and:
+&gt;<i> &gt;Atmel at76x USB Wireless LAN Driver 0.16 loading
+</I>that I got the latest driver from cvs
+
+&gt;<i> 
+</I>&gt;<i> This change was made by Guido Guenther with the log message &quot;remove
+</I>&gt;<i> netdev_name, names of network devices can be set via udev&quot;.  It's
+</I>&gt;<i> unfortunate that I didn't look at that commit.  Even though removing the
+</I>&gt;<i> parameter was justified, I don't think changing the default name was a
+</I>&gt;<i> good idea.
+</I>&gt;<i> 
+</I>&gt;<i> I guess the intention was to use names starting with &quot;wlan&quot; only for
+</I>&gt;<i> drivers based on mac80211 stack.  Since the mac80211 conversion is
+</I>&gt;<i> underway, the problem can be expected to be fixed in the next release.
+</I>When (roughly) might this be?
+
+&gt;<i> &gt; How do I correct this?
+</I>&gt;<i> 
+</I>&gt;<i> The answer is generally specific to the distribution.  It's possible to
+</I>&gt;<i> use ifrename that comes with wireless tools.  Fedora makes it possible
+</I>&gt;<i> to specify MAC address for the device, and if the device with that MAC
+</I>&gt;<i> address is named differently, it will be renamed.
+</I>&gt;<i> 
+</I>&gt;<i> Perhaps the easies approach would be just to accept that the device is
+</I>&gt;<i> called eth1 now.
+</I>
+I might need some help with this.
+
+I'm looking into ifrename at the moment...
+
+If I simply accept that wlan0-&gt;eth1 I will need to change some
+configurations. In the following locations:
+/etc/sysconfig/network-scripts/
+/etc/sysconfig/networking/devices/
+/etc/sysconfig/networking/profiles/default/
+I have the files:
+ifcfg-wlan0
+keys-wlan0
+route-wlan0
+I have tried copying each of those to *-eth1 in all of the above
+locations and rebooting but still the startup screen is full of &quot;Device
+not found&quot; messages relating to wlan0 so I guess it is not as simple as
+all that.
+
+What else do I need to do to make it think that that wlan0 is eth1? (or
+should I simply pursue the ifrename solution?)
+
+Many thanks for your help and support so far.
+
+Mark
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: This is a digitally signed message part
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070909/a45ef632/attachment.pgp">https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070909/a45ef632/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000022.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+	<LI>Next message: <A HREF="000024.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

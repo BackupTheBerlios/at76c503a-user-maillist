@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] [ANNOUNCE] at76_usb 0.16 released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20%5BANNOUNCE%5D%20at76_usb%200.16%20released&In-Reply-To=%3C1186035819.6967.30.camel%40dv%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000019.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] [ANNOUNCE] at76_usb 0.16 released</H1>
+    <B>Pavel Roskin</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20%5BANNOUNCE%5D%20at76_usb%200.16%20released&In-Reply-To=%3C1186035819.6967.30.camel%40dv%3E"
+       TITLE="[at76c503a-user] [ANNOUNCE] at76_usb 0.16 released">proski at gnu.org
+       </A><BR>
+    <I>Thu Aug  2 08:23:39 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000019.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#18">[ date ]</a>
+              <a href="thread.html#18">[ thread ]</a>
+              <a href="subject.html#18">[ subject ]</a>
+              <a href="author.html#18">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+Version 0.16 of the at76_usb driver has been released.
+
+The most important changes in this version may not be visible to the
+ordinary users.  The code have been cleaned up, so that the driver can
+be submitted for the Linux kernel inclusion.
+
+This driver compiles for Linux 2.6.20 and newer, but it's impossible to
+guarantee that it will compile for the future kernels.  Only submitting
+the driver to the kernel would ensure that the driver stays up to date
+with the kernel API.
+
+Please don't complain that older versions are not supported.  A driver
+to be submitted to Linux may not have any backward compatibility code.
+It's already good that a way was found to support several kernels
+without modifying the sources.
+
+Two major bugs have been fixed.  Reloading the driver without unplugging
+the device could cause kernel panic in older versions of the driver.
+Running scan while the driver was in process of association could cause
+kernel panic as well.
+
+The driver now respects the channel in monitor mode.  While it can
+capture beacons from neighboring channels, it won't capture packets from
+all channels indiscriminately, as it was before.  Unfortunately, only
+beacons are captured in monitor mode.  This appears to be a limitation
+of the chipset.
+
+It's now possible to read back all private parameters using the iwpriv
+command.
+
+The common event loop has been split into individual functions, which
+may improve responsiveness of the system.  However, more work is needed
+in this area.
+
+
+If you want to reply to this announcement, please pick one list to podt
+to, don't cross-post!
+
+-- 
+Regards,
+Pavel Roskin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000019.html">[at76c503a-user] Problem with 2.6.22 kernel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#18">[ date ]</a>
+              <a href="thread.html#18">[ thread ]</a>
+              <a href="subject.html#18">[ subject ]</a>
+              <a href="author.html#18">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

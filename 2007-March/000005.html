@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] Kernel, 2.6.20, ad-hoc bug
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Kernel%2C%202.6.20%2C%20ad-hoc%20bug&In-Reply-To=%3C20070325112454.6ee12a88%40boxen.localomain%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] Kernel, 2.6.20, ad-hoc bug</H1>
+    <B>Maciek Borzecki</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20Kernel%2C%202.6.20%2C%20ad-hoc%20bug&In-Reply-To=%3C20070325112454.6ee12a88%40boxen.localomain%3E"
+       TITLE="[at76c503a-user] Kernel, 2.6.20, ad-hoc bug">bboozzoo at gmail.com
+       </A><BR>
+    <I>Sun Mar 25 11:24:54 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[at76c503a-user] Kernel Panic with at76c503a
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+It looks like the CVS sources have problems with data reception. I
+have a setup of one PC (192.168.3.1) on 2.6.20 with SMC2662W card
+running with at76c503a driver and laptop (192.168.3.2) with 8180 card on
+ndiswrapper. 
+In ad-hoc mode, pinging from laptop to PC:
+10:44:03.818567 IP truncated-ip - 4 bytes missing! 192.168.3.2 &gt;
+192.168.3.1: ICMP echo request, id 38931, seq 1, length 64
+10:44:04.821334 IP truncated-ip - 4 bytes missing! 192.168.3.2 &gt;
+192.168.3.1: ICMP echo request, id 38931, seq 2, length 64
+
+pinging from PC to laptop revealed that IP packets were correcly
+received on laptop, but echo response was again truncated on PC.
+I have deleted trimming of FCS as shown in the patch and data started
+to flow, tcpdump does not report truncated packets anymore.
+You may want to take a look and see if the real issue is fixed.
+
+Maciek
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: at76.patch
+Type: text/x-patch
+Size: 919 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070325/b154ef06/attachment.bin">https://lists.berlios.de/pipermail/at76c503a-user/attachments/20070325/b154ef06/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[at76c503a-user] Kernel Panic with at76c503a
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

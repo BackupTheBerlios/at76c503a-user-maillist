@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] problems running 2.6.20-rt5 and at76_usb
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20problems%20running%202.6.20-rt5%20and%20at76_usb&In-Reply-To=%3C45D1C9E9.6010909%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] problems running 2.6.20-rt5 and at76_usb</H1>
+    <B>Dragan Noveski</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20problems%20running%202.6.20-rt5%20and%20at76_usb&In-Reply-To=%3C45D1C9E9.6010909%40gmx.net%3E"
+       TITLE="[at76c503a-user] problems running 2.6.20-rt5 and at76_usb">perodog at gmx.net
+       </A><BR>
+    <I>Tue Feb 13 15:23:37 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[at76c503a-user] problems running 2.6.20-rt5 and at76_usb
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dragan Noveski wrote:
+&gt;<i> hi to the list!
+</I>&gt;<i>
+</I>&gt;<i> i have a problem here with just compiled linux-2.6.20-rt5 on debian testing.
+</I>&gt;<i>
+</I>&gt;<i> well, the kernel is 2.6.20, the rt patch comes from:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://people.redhat.com/mingo/realtime-preempt/older/">http://people.redhat.com/mingo/realtime-preempt/older/</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> with my last kernel 2.6.18 i also was using ingo molnars patches for 
+</I>&gt;<i> realtime audio, everything was working fine.
+</I>&gt;<i> for the network i am using here atmel-usb-addapter.
+</I>&gt;<i>
+</I>&gt;<i> ok, the problem is, that the latest source-code (at76_usb-0.14beta1) 
+</I>&gt;<i> does not compile:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">nowhiskey at murija2</A>:~/software/wlan/at76_usb-0.14beta1$ make
+</I>&gt;<i> make -C /usr/src/linux-2.6.20
+</I>&gt;<i> M=/home/nowhiskey/software/wlan/at76_usb-0.14beta1
+</I>&gt;<i> KERNELRELEASE=2.6.20-rt5Centrino modules
+</I>&gt;<i> make[1]: Entering directory `/usr/src/linux-2.6.20'
+</I>&gt;<i>   CC [M]  /home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.o
+</I>&gt;<i> /home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:21:26: error:
+</I>&gt;<i> linux/config.h: Datei oder Verzeichnis nicht gefunden
+</I>&gt;<i> /home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:6374:38: error:
+</I>&gt;<i> macro &quot;INIT_WORK&quot; passed 3 arguments, but takes just 2
+</I>&gt;<i> /home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c: In function
+</I>&gt;<i> 'alloc_new_device':
+</I>&gt;<i> /home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:6374: error:
+</I>&gt;<i> 'INIT_WORK' undeclared (first use in this function)
+</I>&gt;<i> /home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:6374: error:
+</I>&gt;<i> (Each undeclared identifier is reported only once
+</I>&gt;<i> /home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.c:6374: error: for
+</I>&gt;<i> each function it appears in.)
+</I>&gt;<i> make[2]: *** [/home/nowhiskey/software/wlan/at76_usb-0.14beta1/at76c503.o]
+</I>&gt;<i> Fehler 1
+</I>&gt;<i> make[1]: *** [_module_/home/nowhiskey/software/wlan/at76_usb-0.14beta1]
+</I>&gt;<i> Fehler 2
+</I>&gt;<i> make[1]: Leaving directory `/usr/src/linux-2.6.20'
+</I>&gt;<i> make: *** [modules] Fehler 2
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">nowhiskey at murija2</A>:~/software/wlan/at76_usb-0.14beta1$
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> in /ust/include/linux, there is a config.h file.
+</I>&gt;<i> the link to the /usr/src/linux is correct, showing at the 
+</I>&gt;<i> /usr/src/linux-2.6.20/arch/i383/boot/bzImage sourcetree.
+</I>&gt;<i>
+</I>&gt;<i> i tried already another solution, compiling the cvs-tarball 
+</I>&gt;<i> (at76c503a-cvsroot.tar.gz), there compiling works good, but after 
+</I>&gt;<i> starting the network, it works for short time, after that the console 
+</I>&gt;<i> crashes showing:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Message from <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">syslogd at localhost</A> at Mon Feb 12 23:41:19 2007 ...
+</I>&gt;<i> localhostlocalhostlocalhostlocalhostlocalhost     kernel:  [&lt;c012750e&gt;]
+</I>&gt;<i> kthread+0x0/0xcakernel:  [&lt;c0103857&gt;] kernel_thread_helper+0x7/0x10kernel:
+</I>&gt;<i> =======================kernel: Code: 86 a0 07 00 00 0f af 86 a4 07 00 00 0f
+</I>&gt;<i> b6 5f 01 0f af d8 a1 60 a3 3a c0 e8 05 4d e4 df 89 c2 89 d8 2b 96 a8 07 00
+</I>&gt;<i> 00 89 d1 31 d2 &lt;f7&gt; f1 88 46 66 a1 60 a3 3a c0 e8 e8 4c e4 df c7 86 a4 07 00
+</I>&gt;<i> 00 kernel: EIP: [&lt;e02d5fb7&gt;] update_wstats+0x6c/0xb6 [at76_usb] SS:ESP
+</I>&gt;<i> 0068:df681e3c
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> i am using this script to access the network:
+</I>&gt;<i>
+</I>&gt;<i> #!/bin/sh
+</I>&gt;<i>     iwconfig wlan0 mode ad-hoc essid olsr.freifunk.net channel 10
+</I>&gt;<i>     ifconfig wlan0 104.130.30.9
+</I>&gt;<i>     ifconfig wlan0 up
+</I>&gt;<i>     olsrd
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> it worked now good with other kernels.
+</I>&gt;<i>
+</I>&gt;<i> on the boot the module gets loaded and the firmware 
+</I>&gt;<i> (at76_usb-firmware-0.1) too, but after the crash, i am not even able to 
+</I>&gt;<i> rmmod &quot;at76_usb&quot;, i am only able to do a hard reset!
+</I>&gt;<i>
+</I>&gt;<i> if you need more information on my system, please tell me that, but give 
+</I>&gt;<i> me the instructions how i get the information out of my machine, 
+</I>&gt;<i> because  i am still a bloody noob and don&#180;t know very much of 
+</I>&gt;<i> linux-terminologies!
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> hope that someone can help me!
+</I>&gt;<i> cheers,
+</I>&gt;<i> doc
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> at76c503a-user mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">at76c503a-user at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">https://lists.berlios.de/mailman/listinfo/at76c503a-user</A>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>p.s. i don&#180;t know if this additional information is useful, it comes 
+from dmesg:
+
+divide error: 0000 [#1]
+PREEMPT
+Modules linked in: thermal fan button processor ac battery snd_intel8x0m
+at76_usb uhci_hcd snd_intel8x0 snd_ac97_codec ac97_bus e100 ipw2200
+ieee80211 ieee80211_crypt yenta_socket rsrc_nonstatic pcmcia_core i2c_i801
+ide_cd cdrom snd_hdsp snd_pcm_oss snd_mixer_oss snd_pcm snd_page_alloc
+snd_hwdep snd_seq_dummy snd_seq_oss snd_seq_midi 
+snd_rawmidisnd_seq_midi_event snd_seq snd_timer snd_seq_device snd rtc
+CPU:    0
+EIP:    0060:[&lt;e025dfb7&gt;]    Not tainted VLI
+EFLAGS: 00010246   (2.6.20-rt5Centrino #1)
+EIP is at update_wstats+0x6c/0xb6 [at76_usb]
+eax: 00000000   ebx: 00000000   ecx: 00000000   edx: 00000000
+esi: dea222c0   edi: dea22326   ebp: dc0d5000   esp: df681e3c
+ds: 007b   es: 007b   ss: 0068   preempt: 00000001
+Process softirq-tasklet (pid: 8, ti=df681000 task=c147f550 task.ti=df681000)
+Stack: dea224e8 00000080 dc0d500c e02607b7 00000001 00000000 00000006
+df3bc740
+       de9d2d40 df425000 dedbcc00 c0124d19 dea222c0 de0046fc df6c61c0
+00000002
+       00000002 e022a7a5 00000001 00000001 00000001 dc0d504d 00000000
+00000021
+Call Trace:
+ [&lt;e02607b7&gt;] rx_mgmt+0x80/0x113a [at76_usb]
+ [&lt;c0124d19&gt;] __queue_work+0x54/0x5e
+ [&lt;e022a7a5&gt;] ipw_rx_queue_restock+0x8c/0xb9 [ipw2200]
+ [&lt;c011e357&gt;] __get_nsec_offset+0xd/0x44
+ [&lt;c01557d9&gt;] __kmalloc+0x73/0x7e
+ [&lt;c02a9041&gt;] __alloc_skb+0x4f/0xf6
+ [&lt;e02600e1&gt;] submit_rx_urb+0x1d6/0x26f [at76_usb]
+ [&lt;c01135c8&gt;] __activate_task+0x1c/0x28
+ [&lt;e02656d0&gt;] rx_tasklet+0x10bc/0x1146 [at76_usb]
+ [&lt;c012767e&gt;] autoremove_wake_function+0x15/0x35
+ [&lt;c01132b4&gt;] __wake_up_common+0x32/0x55
+ [&lt;c0114c1a&gt;] __wake_up+0x36/0x59
+ [&lt;c011b390&gt;] __tasklet_action+0xe2/0x121
+ [&lt;c030d752&gt;] schedule+0xe0/0xfa
+ [&lt;c011b79d&gt;] ksoftirqd+0x0/0x14f
+ [&lt;c011b86d&gt;] ksoftirqd+0xd0/0x14f
+ [&lt;c01275ae&gt;] kthread+0xa0/0xca  
+ [&lt;c012750e&gt;] kthread+0x0/0xca   
+ [&lt;c0103857&gt;] kernel_thread_helper+0x7/0x10
+ =======================
+Code: 86 a0 07 00 00 0f af 86 a4 07 00 00 0f b6 5f 01 0f af d8 a1 60 c3 3a
+c0 e8 05 cd eb df 89 c2 89 d8 2b 96 a8 07 00 00 89 d1 31 d2 &lt;f7&gt; f1 88 46 66
+a1 60 c3 3a c0 e8 e8 cc eb df c7 86 a4 07 00 00
+EIP: [&lt;e025dfb7&gt;] update_wstats+0x6c/0xb6 [at76_usb] SS:ESP 0068:df681e3c
+ &lt;3&gt;ipw2200: Failed to send SCAN_ABORT: Command timed out.
+ipw2200: Failed to send CARD_DISABLE: Command timed out. 
+ipw2200: Failed to send TX_POWER: Command timed out.
+ipw2200: Failed to send TX_POWER: Command timed out.
+ipw2200: Failed to send TX_POWER: Command timed out.
+/home/nowhiskey/software/wlan/at76c503a/at76c503.c: wlan0: lost beacon bssid
+02:ca:ff:ee:ba:be
+ipw2200: Failed to send TX_POWER: Command timed out.
+ipw2200: Failed to send TX_POWER: Command timed out.
+ipw2200: Unable to initialize device after 5 attempts.
+ipw2200: Failed to up device
+<A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">nowhiskey at murija2</A>:~$ 
+
+
+cheers,
+doc
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[at76c503a-user] problems running 2.6.20-rt5 and at76_usb
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>

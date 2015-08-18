@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [at76c503a-user] at76c503a crashes on 2.6.21.3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/at76c503a-user/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C1181076046.2709.8.camel%40dv%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000009.html">
+   <LINK REL="Next"  HREF="000011.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[at76c503a-user] at76c503a crashes on 2.6.21.3</H1>
+    <B>Pavel Roskin</B> 
+    <A HREF="mailto:at76c503a-user%40lists.berlios.de?Subject=Re%3A%20%5Bat76c503a-user%5D%20at76c503a%20crashes%20on%202.6.21.3&In-Reply-To=%3C1181076046.2709.8.camel%40dv%3E"
+       TITLE="[at76c503a-user] at76c503a crashes on 2.6.21.3">proski at gnu.org
+       </A><BR>
+    <I>Tue Jun  5 22:40:46 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000009.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+        <LI>Next message: <A HREF="000011.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#10">[ date ]</a>
+              <a href="thread.html#10">[ thread ]</a>
+              <a href="subject.html#10">[ subject ]</a>
+              <a href="author.html#10">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello!
+
+On Tue, 2007-06-05 at 13:29 -0500, <A HREF="https://lists.berlios.de/mailman/listinfo/at76c503a-user">alupu at verizon.net</A> wrote:
+
+&gt;<i> i686-pc-linux-gnu 2.6.21.3,
+</I>&gt;<i> gcc 4.1.2, glibc 2.5, udev 111
+</I>&gt;<i> at76c503a-0.13.tar.gz
+</I>
+Unfortunately, it's hard to make standalone packages because the kernel
+API is changing in every kernel version.  The work is underway to
+include the driver into the kernel, which would provide a long term
+solution.  Version 0.13 is obsolete, and I don't think any further
+standalone releases will be made.
+
+&gt;<i> In order to compile the driver at all,
+</I>&gt;<i> I had to use three workarounds:
+</I>[skip]
+&gt;<i> 3. To avoid the error:
+</I>&gt;<i>     /usr/src/at76c503a/at76c503.c:7037:38: error:
+</I>&gt;<i>     macro &quot;INIT_WORK&quot; passed 3 arguments,
+</I>&gt;<i>     but takes just 2,
+</I>&gt;<i>    I _alternately_ did:
+</I>&gt;<i>   3a. In 'at76c503.c' changed
+</I>&gt;<i>        &quot;INIT_WORK (&amp;dev-&gt;kevent, kevent, dev);&quot;
+</I>&gt;<i>        to &quot;INIT_WORK (&amp;dev-&gt;kevent, kevent);&quot;
+</I>&gt;<i>   3b. Left 'at76c503.c' unchanged and
+</I>&gt;<i>       in /linux-2.6.21.3/include/linux/ replaced 
+</I>&gt;<i>       'workqueue.h' with the symlink
+</I>&gt;<i>       workqueue.h -&gt; /usr/include/linux/workqueue.h
+</I>
+Neither is correct.  The work handlers need to be changed to get the
+context correctly.
+
+&gt;<i> Whether 3a or 3b, after installing the driver
+</I>&gt;<i> ('make install'),
+</I>&gt;<i> on plugging the device in the USB 2.0 port,
+</I>&gt;<i> the driver does come up with some clean messages
+</I>&gt;<i> (correctly? - no mention of registering &quot;wlan0&quot;)
+</I>&gt;<i> but at that point the system crashes (freezes),
+</I>&gt;<i> fortunately softly (Ctrl-Alt-Del).
+</I>
+Please try the current version.  You can get it by installing git and
+running
+
+git-clone <A HREF="http://honk.sigxcpu.org/git/at76c503a.git">http://honk.sigxcpu.org/git/at76c503a.git</A>
+
+-- 
+Regards,
+Pavel Roskin
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000009.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+	<LI>Next message: <A HREF="000011.html">[at76c503a-user] at76c503a crashes on 2.6.21.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#10">[ date ]</a>
+              <a href="thread.html#10">[ thread ]</a>
+              <a href="subject.html#10">[ subject ]</a>
+              <a href="author.html#10">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/at76c503a-user">More information about the at76c503a-user
+mailing list</a><br>
+</body></html>
